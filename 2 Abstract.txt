@@ -1,0 +1,46 @@
+using System;
+
+namespace PREMCC_OOP_PERKANTORAN
+{
+
+	public class Program
+	{
+		public static void Main( string[] args)
+		{
+			Allowance allowance;
+			allowance = new Employee();
+			allowance.Display();
+			allowance.count();
+			
+			
+			allowance = new Manager();
+			allowance.Display();
+			allowance.count();
+			
+			
+		}
+	}
+	class Employee : Allowance
+	{
+		public override void count()
+		{
+			Console.WriteLine("Kamu mendapatkan tunjangan sebanyak RP 500.000");
+		}
+	}
+	class Manager : Allowance
+	{
+		public override void count()
+		{
+			Console.WriteLine("Kamu mendapatkan tunjangan sebanyak RP 1000.000");
+		}
+	}
+	abstract class Allowance
+	{
+		public abstract void count();
+		public void Display()
+		{
+			Console.WriteLine("Menghitung Tunjangan...");
+		}
+	}
+
+}

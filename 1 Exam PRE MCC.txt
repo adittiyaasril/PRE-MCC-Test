@@ -1,0 +1,121 @@
+using System;
+
+namespace PREMCC_OOP_PERKANTORAN
+{
+
+	public class Program
+	{
+		
+		public static void Main( string[] args)
+		{
+			//encapsulation
+			Employee employee = new Employee("Samsudin", "Manager");
+			employee.Introduction();
+			
+			//Inheritance
+			Manager manager = new Manager();
+			Console.WriteLine(manager.level);
+			manager.salary();
+			
+			//Polymorphism
+			SalaryEmployee salaryemployee = new SalaryEmployee();
+			SalaryManager salarymanager = new SalaryManager();
+			Console.WriteLine(manager.level);
+			salarymanager.salary("RP 15.000.000 ");
+			salarymanager.bonus();
+			
+			//Abstraction
+			Allowance allowance;
+			allowance = new AllEmployee();
+			allowance.Display();
+			allowance.count();
+			
+			
+			allowance = new AllManager();
+			allowance.Display();
+			allowance.count();
+		}
+	}
+	//encapsulation
+	class Employee
+	{
+		//constructor
+		public Employee(string name, string position)
+		{
+			Name = name;
+			Position = position;
+		}
+		
+		public string Name {get; private set;}
+		private string Position {get; set;}
+		
+		public void Introduction()
+		{
+			Console.WriteLine("Hello nama saya adalah " + Name);
+			Console.WriteLine("Posisi saya sebagai " + Position);
+			
+		}
+	}
+	//Inheritance
+	class Employeer // base class (parent) 
+	{
+
+		public void salary()
+		{
+			Console.WriteLine("Anda sudah menerima gaji bulan ini");
+		}
+	}
+	class Manager : Employeer // derived class (child)
+	{
+		public string level = "Senior Manager";
+	}
+	class SalaryEmployee // base class (parent) 
+	{
+		public void salary()
+		{
+			Console.WriteLine("Anda sudah menerima gaji bulan ini");
+		}
+		public void salary(string value)
+		{
+			Console.WriteLine("Gaji anda bulan ini " + value);
+		}
+		public virtual void bonus ()
+		{
+			Console.WriteLine("Anda mendapatkan bonus sebesar RP 100.000");	
+		}
+	}
+	//Polymorphism
+	class SalaryManager : SalaryEmployee // derived class (child)
+	{
+		public string level = "Senior Manager";
+		
+		public override void bonus ()
+		{
+			Console.WriteLine("Anda mendapatkan bonus sebesar RP 500.000");	
+		}
+	}
+	//Abstraction
+	class AllEmployee : Allowance
+	{
+		public override void count()
+		{
+			Console.WriteLine("Kamu mendapatkan tunjangan sebanyak RP 500.000");
+		}
+	}
+	class AllManager : Allowance
+	{
+		public override void count()
+		{
+			Console.WriteLine("Kamu mendapatkan tunjangan sebanyak RP 1000.000");
+		}
+	}
+	abstract class Allowance
+	{
+		public abstract void count();
+		public void Display()
+		{
+			Console.WriteLine("Menghitung Tunjangan...");
+		}
+	}
+
+}

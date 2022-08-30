@@ -1,0 +1,35 @@
+using System;
+
+namespace PREMCC_OOP_PERKANTORAN
+{
+
+	public class Program
+	{
+		//encapsulation
+		public static void Main( string[] args)
+		{
+			Employee employee = new Employee("Samsudin", "Manager");
+			employee.Introduction();
+		}
+	}
+	class Employee
+	{
+		//constructor
+		public Employee(string name, string position)
+		{
+			Name = name;
+			Position = position;
+		}
+		
+		public string Name {get; private set;}
+		private string Position {get; set;}
+		
+		public void Introduction()
+		{
+			Console.WriteLine("Hello nama saya adalah " + Name);
+			Console.WriteLine("Posisi saya sebagai " + Position);
+			
+		}
+	}
+
+}

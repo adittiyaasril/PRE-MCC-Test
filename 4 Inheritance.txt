@@ -1,0 +1,28 @@
+	using System;
+
+namespace PREMCC_OOP_PERKANTORAN
+{
+
+	public class Program
+	{
+		public static void Main( string[] args)
+		{
+			Manager manager = new Manager();
+			Console.WriteLine(manager.level);
+			manager.salary();
+		}
+	}
+	class Employee // base class (parent) 
+	{
+
+		public void salary()
+		{
+			Console.WriteLine("Anda sudah menerima gaji bulan ini");
+		}
+	}
+	class Manager : Employee // derived class (child)
+	{
+		public string level = "Senior Manager";
+	}
+
+}

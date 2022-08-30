@@ -1,0 +1,42 @@
+using System;
+
+namespace PREMCC_OOP_PERKANTORAN
+{
+
+	public class Program
+	{
+		public static void Main( string[] args)
+		{
+			Employee employee = new Employee();
+			Manager manager = new Manager();
+			Console.WriteLine(manager.level);
+			manager.salary("RP 15.000.000 ");
+			manager.bonus();
+		}
+	}
+	class Employee // base class (parent) 
+	{
+		public void salary()
+		{
+			Console.WriteLine("Anda sudah menerima gaji bulan ini");
+		}
+		public void salary(string value)
+		{
+			Console.WriteLine("Gaji anda bulan ini " + value);
+		}
+		public virtual void bonus ()
+		{
+			Console.WriteLine("Anda mendapatkan bonus sebesar RP 100.000");	
+		}
+	}
+	class Manager : Employee // derived class (child)
+	{
+		public string level = "Senior Manager";
+		
+		public override void bonus ()
+		{
+			Console.WriteLine("Anda mendapatkan bonus sebesar RP 500.000");	
+		}
+	}
+
+}
